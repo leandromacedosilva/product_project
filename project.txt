@@ -2,7 +2,12 @@ data base
 
 insert into produtos() values();
 
-create table produtos() default charset = utf8;
+create table produtos(id int not null auto_increment
+                     ,descricao varchar(50) not null
+                     ,valor decimal(8, 2) not null
+                     ,categoria_id integer not null
+                     ,foreign key (categoria_id) references categorias(id),
+                     ,primary key(id)) default charset = utf8;
 
 insert into categorias(id
                       ,nome
@@ -20,7 +25,7 @@ create table categorias(id integer not null auto_increment
                        ,nome varchar(50) not null
                        ,dtcria timestamp not null default current_timestamp
                        ,primary key(id)) default charset = utf8;
-                        
+
 user dberpcontainer;
 
 create database dberpcontainer default character set utf8 default COLLATE utf8_general_ci;
