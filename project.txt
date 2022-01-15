@@ -1,0 +1,30 @@
+data base 
+
+insert into produtos() values();
+
+create table produtos() default charset = utf8;
+
+insert into categorias(id
+                      ,nome
+                      ,dtcria) values(default
+                                     ,'Refrigerantes'
+                                     ,current_timestamp),
+                                     (default
+                                     ,'Salgados'
+                                     ,current_timestamp),
+                                     (default
+                                     ,'Bebidas Alcoolicas'
+                                     ,current_timestamp);
+
+create table categorias(id integer not null auto_increment
+                       ,nome varchar(50) not null
+                       ,dtcria timestamp not null default current_timestamp
+                       ,primary key(id)) default charset = utf8;
+                        
+user dberpcontainer;
+
+create database dberpcontainer default character set utf8 default COLLATE utf8_general_ci;
+
+show databases;
+
+
