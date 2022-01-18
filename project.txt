@@ -1,3 +1,103 @@
+insert into produtos(id
+                    ,descricao
+                    ,valor
+                    ,dtregistro
+                    ,categoria_id
+                    ,secao_id) values(default
+                                         ,'Bolo Anivers. medio'
+                                         ,47.84
+                                         ,current_timestamp()
+                                         ,2
+                                         ,2);
+
+insert into produtos(id
+                    ,descricao
+                    ,valor
+                    ,dtregistro
+                    ,categoria_id
+                    ,secao_id) values(default
+                                         ,'Refrig. Guarana Antarctica Lta 350 Ml'
+                                         ,4.99
+                                         ,current_timestamp()
+                                         ,1
+                                         ,1);
+
+update produtos set descricao = 'Refrig. Pepsi Lta 350 Ml' where id = 3;      
+
+update produtos set valor = 4.5 where id = 3;
+                                        
+insert into produtos(id
+                    ,descricao
+                    ,valor
+                    ,dtregistro
+                    ,categoria_id
+                    ,secao_id) values(default
+                                         ,'Refrig. Coca-Cola Lta 350 Ml'
+                                         ,5.80
+                                         ,current_timestamp()
+                                         ,1
+                                         ,1);
+                                        
+select * from produtos;                                        
+
+show tables;                                        
+                                        
+drop table produtos;                                        
+                                        
+create table produtos(id int not null auto_increment
+                     ,descricao varchar(50) not null
+                     ,valor decimal(8, 2) not null
+                     ,dtregistro timestamp not null default current_timestamp()
+                     ,categoria_id integer not null
+                     ,secao_id integer not null
+                     ,foreign key (categoria_id) references categorias(id)
+                     ,foreign key (secao_id) references secoes(id)
+                     ,primary key(id)) default charset = utf8;
+
+insert into categorias(id
+                      ,descricao
+                      ,dtcria) values(default
+                                     ,'Bebidas'
+                                     ,current_timestamp()),
+                                     (default
+                                     ,'Bolos'
+                                     ,current_timestamp()),
+                                     (default
+                                     ,'Salgados'
+                                     ,current_timestamp());
+
+create table categorias(id integer not null auto_increment
+                       ,descricao varchar(50) not null
+                       ,dtcria timestamp not null default current_timestamp()
+                       ,primary key(id)) default charset = utf8;
+
+select * from categorias;                      
+                      
+insert into secoes(id
+                  ,descricao
+                  ,dtcria) values(default
+                                ,'Refrigerantes'
+                                ,current_timestamp()),
+                                (default
+                                ,'Vinhos'
+                                ,current_timestamp()),
+                                (default
+                                ,'Alcoolicas'
+                                ,current_timestamp());
+
+select * from secoes;                               
+                               
+create table secoes(id integer not null auto_increment
+                   ,descricao varchar(50) not null
+                   ,dtcria timestamp not null default current_timestamp()
+                   ,primary key(id)) default charset = utf8;
+
+use dberpcontainer;
+
+create database dberpcontainer default character set utf8 default COLLATE utf8_general_ci;
+
+show databases;            -- > daqui para cima code database atualizado in 18/01/2022 
+-------------------------------------------------------------------------------------------------------------------------------------
 data base 
 
 insert into produtos(id
