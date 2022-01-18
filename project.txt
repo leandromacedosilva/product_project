@@ -3,34 +3,82 @@ data base
 insert into produtos(id
                     ,descricao
                     ,valor
-                    ,categoria_id) values(default
+                    ,dtregistro
+                    ,categoria_id
+                    ,secao_id) values(default
+                                         ,'Bolo Anivers. medio'
+                                         ,47.84
+                                         ,current_timestamp()
+                                         ,2
+                                         ,2);
+
+insert into produtos(id
+                    ,descricao
+                    ,valor
+                    ,dtregistro
+                    ,categoria_id
+                    ,secao_id) values(default
+                                         ,'Refrig. Guarana Antarctica Lta 350 Ml'
+                                         ,4.99
+                                         ,current_timestamp()
+                                         ,1
+                                         ,1);
+
+insert into produtos(id
+                    ,descricao
+                    ,valor
+                    ,dtregistro
+                    ,categoria_id
+                    ,secao_id) values(default
                                          ,'Refrig. Coca-Cola Lta 350 Ml'
                                          ,5.80
+                                         ,current_timestamp()
+                                         ,1
                                          ,1);
 
 create table produtos(id int not null auto_increment
                      ,descricao varchar(50) not null
                      ,valor decimal(8, 2) not null
+                     ,dtregistro timestamp not null default current_timestamp()
                      ,categoria_id integer not null
-                     ,foreign key (categoria_id) references categorias(id),
+                     ,secao_id integer not null
+                     ,foreign key (categoria_id) references categorias(id)
+                     ,foreign key (secao_id) references secoes(id)
                      ,primary key(id)) default charset = utf8;
 
 insert into categorias(id
-                      ,nome
+                      ,descricao
                       ,dtcria) values(default
-                                     ,'Refrigerantes'
-                                     ,current_timestamp),
+                                     ,'Bebidas'
+                                     ,current_timestamp()),
+                                     (default
+                                     ,'Bolos'
+                                     ,current_timestamp()),
                                      (default
                                      ,'Salgados'
-                                     ,current_timestamp),
-                                     (default
-                                     ,'Bebidas Alcoolicas'
-                                     ,current_timestamp);
+                                     ,current_timestamp());
 
 create table categorias(id integer not null auto_increment
-                       ,nome varchar(50) not null
+                       ,descricao varchar(50) not null
                        ,dtcria timestamp not null default current_timestamp()
                        ,primary key(id)) default charset = utf8;
+
+insert into secoes(id
+                  ,descricao
+                  ,dtcria) values(default
+                                ,'Refrigerantes'
+                                ,current_timestamp()),
+                                (default
+                                ,'Vinhos'
+                                ,current_timestamp()),
+                                (default
+                                ,'Alcoolicas'
+                                ,current_timestamp());
+
+create table secoes(id integer not null auto_increment
+                   ,descricao varchar(50) not null
+                   ,dtcria timestamp not null default current_timestamp()
+                   ,primary key(id)) default charset = utf8;
 
 user dberpcontainer;
 
