@@ -1,6 +1,12 @@
 data base 
 
-insert into produtos() values();
+insert into produtos(id
+                    ,descricao
+                    ,valor
+                    ,categoria_id) values(default
+                                         ,'Refrig. Coca-Cola Lta 350 Ml'
+                                         ,5.80
+                                         ,1);
 
 create table produtos(id int not null auto_increment
                      ,descricao varchar(50) not null
@@ -23,7 +29,7 @@ insert into categorias(id
 
 create table categorias(id integer not null auto_increment
                        ,nome varchar(50) not null
-                       ,dtcria timestamp not null default current_timestamp
+                       ,dtcria timestamp not null default current_timestamp()
                        ,primary key(id)) default charset = utf8;
 
 user dberpcontainer;
@@ -31,5 +37,3 @@ user dberpcontainer;
 create database dberpcontainer default character set utf8 default COLLATE utf8_general_ci;
 
 show databases;
-
-
